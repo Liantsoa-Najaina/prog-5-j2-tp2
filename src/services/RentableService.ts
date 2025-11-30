@@ -32,10 +32,7 @@ export class RentableService extends BaseService<Rentable> {
         return await this.rentableRepository.findByType(type);
     }
 
-    async updateAvailability(
-        id: string,
-        available: boolean
-    ): Promise<Rentable> {
+    async updateAvailability(id: string, available: boolean): Promise<Rentable> {
         logger.info("Updating a rentable availability", {id: id, available});
         return await this.rentableRepository.updateAvailability(id, available);
     }

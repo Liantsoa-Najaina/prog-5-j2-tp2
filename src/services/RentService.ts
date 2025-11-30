@@ -12,11 +12,7 @@ export class RentService {
     private renterService: RenterService;
     private rentableService: RentableService;
 
-    constructor(
-        rentRepository: IRentRepository,
-        renterService: RenterService,
-        rentableService: RentableService
-    ) {
+    constructor(rentRepository: IRentRepository, renterService: RenterService, rentableService: RentableService) {
         this.rentRepository = rentRepository;
         this.renterService = renterService;
         this.rentableService = rentableService;
@@ -47,10 +43,7 @@ export class RentService {
             throw new ClientError("Rentable is not available");
         }
 
-        const days = Math.ceil(
-            (data.endDate.getTime() - data.startDate.getTime()) /
-                (1000 * 60 * 60 * 24)
-        );
+        const days = Math.ceil((data.endDate.getTime() - data.startDate.getTime()) / (1000 * 60 * 60 * 24));
         const totalAmount = days * rentable.pricePerDay;
 
         const rentData = {

@@ -15,9 +15,7 @@ export class RenterService extends BaseService<Renter> {
     async createRenter(data: Partial<Renter>): Promise<Renter> {
         logger.info("Creating a new Renter", {email: data.email});
 
-        const existingRenter = await this.renterRepository.findByEmail(
-            data.email!
-        );
+        const existingRenter = await this.renterRepository.findByEmail(data.email!);
         if (existingRenter) {
             throw new ClientError("Renter with this email already exists");
         }

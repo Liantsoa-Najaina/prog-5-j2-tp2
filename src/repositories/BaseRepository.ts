@@ -3,9 +3,7 @@ import {IRepository} from "../interfaces/IRepository";
 import {AppDataSource} from "../config/database";
 import {NotFoundError} from "../errors/NotFoundError";
 
-export abstract class BaseRepository<
-    T extends ObjectLiteral,
-> implements IRepository<T> {
+export abstract class BaseRepository<T extends ObjectLiteral> implements IRepository<T> {
     protected repository: Repository<T>;
 
     protected constructor(entityClass: new () => T) {

@@ -2,10 +2,7 @@ import {BaseRepository} from "./BaseRepository";
 import {IRentRepository} from "../interfaces/IRentRepository";
 import {Rent, RentStatus} from "../entities/Rent";
 
-export class RentRepository
-    extends BaseRepository<Rent>
-    implements IRentRepository
-{
+export class RentRepository extends BaseRepository<Rent> implements IRentRepository {
     constructor() {
         super(Rent);
     }
